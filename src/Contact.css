@@ -1,8 +1,7 @@
 label {
     width: 100%;
-    color: rgba(204, 3, 35, 0.5);
+    color: rgba(204, 3, 35, 0.5);;
 }
-
 
 /* Style inputs with type="text", select elements and textareas */
 input[type=text], select, textarea {
@@ -15,12 +14,9 @@ input[type=text], select, textarea {
     margin-bottom: 16px; /* Bottom margin */
     resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
 }
-button:hover {
-background-color: #45a049;
-}
 
 /* Style the submit button with a specific background color etc */
-input[type=submit] {
+button {
     background-color: #04AA6D;
     color: white;
     padding: 12px 20px;
@@ -30,7 +26,7 @@ input[type=submit] {
 }
 
 /* When moving the mouse over the submit button, add a darker green color */
-input[type=submit]:hover {
+button:hover {
     background-color: #45a049;
 }
 
