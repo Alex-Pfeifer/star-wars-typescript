@@ -40,17 +40,9 @@ const AboutMe = () => {
                 <div className='fs-2 lh-lg text-justify ms-5'>
                     {heroDisplay.map((key) => (
                         <p key={key}>
-                            <span className='display-3'>{key}: </span> {hero[key as keyof HeroInfo]}
+                            <span className='display-3'>{key.replace('_', ' ')}: </span> {hero[key as keyof HeroInfo]}
                         </p>
                     ))}
-                    {/*<p><span className='display-3'>name:</span> {hero.name}</p>*/}
-                    {/*<p><span className='display-3'>gender:</span> {hero.gender}</p>*/}
-                    {/*<p><span className='display-3'>birth year:</span> {hero.birth_year}</p>*/}
-                    {/*<p><span className='display-3'>height:</span> {hero.height}</p>*/}
-                    {/*<p><span className='display-3'>mass:</span> {hero.mass}</p>*/}
-                    {/*<p><span className='display-3'>hair color:</span> {hero.hair_color}</p>*/}
-                    {/*<p><span className='display-3'>skin color:</span> {hero.skin_color}</p>*/}
-                    {/*<p><span className='display-3'>eye color:</span> {hero.eye_color}</p>*/}
                 </div>
             }
         </>
