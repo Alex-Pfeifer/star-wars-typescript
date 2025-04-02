@@ -42,13 +42,13 @@ const AboutMe = () => {
 
     }, [])
 
-    const heroDisplay =['name', 'gender', 'birth_year', 'height', 'mass', 'hair_color', 'skin_color', 'eye_color'];
+    // const heroDisplay =['name', 'gender', 'birth_year', 'height', 'mass', 'hair_color', 'skin_color', 'eye_color'];
 
     return (
         <>
             {(!!hero) &&
                 <div className='fs-2 lh-lg text-justify ms-5'>
-                    {heroDisplay.map((key) => (
+                    {Object.keys(hero).map((key) => (
                         <p key={key}>
                             <span className='display-3'>{key.replace('_', ' ')}: </span> {hero[key as keyof HeroInfo]}
                         </p>
