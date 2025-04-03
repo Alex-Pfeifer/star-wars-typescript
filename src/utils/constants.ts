@@ -70,9 +70,9 @@ export const characters: Characters = {
 
 
 
-export const friends = [friend1, friend2, friend3, friend4, friend5, friend6, friend7, friend8, friend9];
+export const friends = Object.keys(characters);
 
-export const defaultHero = 'luke'
+export const defaultHero = friends[0]
 
 export const navItems: Item[] = [
     {title: 'Home', path: 'home'},
