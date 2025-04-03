@@ -9,6 +9,7 @@ import friend7 from "../assets/friend7.jpg";
 import friend8 from "../assets/friend8.jpg";
 import friend9 from "../assets/friend9.jpg";
 import {Characters, Item} from "./type";
+import ErrorPage from "../components/ErrorPage.tsx";
 
 
 export const base_url = 'http://sw-info-api.herokuapp.com';
@@ -73,6 +74,8 @@ export const characters: Characters = {
 export const friends = Object.keys(characters);
 
 export const defaultHero = friends[0]
+export const Error = ErrorPage
+
 
 export const navItems: Item[] = [
     {title: 'Home', path: 'home'},

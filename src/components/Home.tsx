@@ -1,27 +1,31 @@
 import Hero from "./Hero.jsx";
 import DreamTeam from "./DreamTeam.jsx";
 import FarGalaxy from "./FarGalaxy.jsx";
-import {characters, defaultHero} from "../utils/constants.ts";
+import ErrorPage from "./ErrorPage.jsx";
+import {characters} from "../utils/constants.ts";
 import {useParams} from "react-router";
 import {useContext, useEffect} from "react";
 import {SWContext} from "../utils/Context.ts";
 
 const Home = () => {
+    const {heroId} = useParams();
+    const {changeHero} = useContext(SWContext);
 
-    let {heroId = defaultHero} = useParams();
-    const {changeHero} = useContext(SWContext)
     useEffect(() => {
-        if (!characters[heroId]){
-            heroId = defaultHero;
+        if (characters[heroId]) {
+            changeHero(heroId);
         }
-        changeHero(heroId);
     }, [heroId]);
+
+    if (!characters[heroId]) {
+        return <ErrorPage />;
+    }
 
     return (
         <main className="clearfix">
-            <Hero/>
-            <DreamTeam/>
-            <FarGalaxy/>
+            <Hero />
+            <DreamTeam />
+            <FarGalaxy />
         </main>
     );
 };
