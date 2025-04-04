@@ -4,18 +4,22 @@ import {base_url, characters, defaultHero, period_month} from "../utils/constant
 import {Planet} from "../utils/type";
 import {useParams} from "react-router";
 import {SWContext} from "../utils/Context.ts";
+import ErrorPage from "./ErrorPage.tsx";
 
 const Contact = () => {
     const [planets, setPlanets] = useState(['Loading...'])
 
-    let {heroId = defaultHero} = useParams();
+    const {heroId = defaultHero} = useParams();
     const {changeHero} = useContext(SWContext)
     useEffect(() => {
-        if (!characters[heroId]){
-            heroId = defaultHero;
+        if (characters[heroId]){
+            changeHero(heroId);
         }
-        changeHero(heroId);
-    }, []);
+    }, [heroId]);
+
+    if (!characters[heroId]){
+        return <ErrorPage />;
+    }
 
 
     async function fetchPlanets(url: string) {

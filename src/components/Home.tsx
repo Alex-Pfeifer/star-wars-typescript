@@ -2,13 +2,13 @@ import Hero from "./Hero.jsx";
 import DreamTeam from "./DreamTeam.jsx";
 import FarGalaxy from "./FarGalaxy.jsx";
 import ErrorPage from "./ErrorPage.jsx";
-import {characters} from "../utils/constants.ts";
+import {characters, defaultHero} from "../utils/constants.ts";
 import {useParams} from "react-router";
 import {useContext, useEffect} from "react";
 import {SWContext} from "../utils/Context.ts";
 
 const Home = () => {
-    const {heroId} = useParams();
+    const {heroId = defaultHero} = useParams();
     const {changeHero} = useContext(SWContext);
 
     useEffect(() => {
