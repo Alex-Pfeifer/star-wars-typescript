@@ -1,21 +1,16 @@
 import '../Contact.css'
-import {useContext, useEffect, useState} from "react";
-import {base_url, characters, defaultHero, period_month} from "../utils/constants.js";
+import {useEffect, useState} from "react";
+import {base_url, characters, defaultHero, period_month} from "../utils/constants.ts";
 import {Planet} from "../utils/type";
-import {useParams} from "react-router";
-import {SWContext} from "../utils/Context.ts";
 import ErrorPage from "./ErrorPage.tsx";
+import UseEffect from "../utils/useEffect.ts";
+import {useParams} from "react-router";
 
 const Contact = () => {
     const [planets, setPlanets] = useState(['Loading...'])
 
     const {heroId = defaultHero} = useParams();
-    const {changeHero} = useContext(SWContext)
-    useEffect(() => {
-        if (characters[heroId]){
-            changeHero(heroId);
-        }
-    }, [heroId]);
+
 
     if (!characters[heroId]){
         return <ErrorPage />;
@@ -45,6 +40,8 @@ const Contact = () => {
     }, [])
 
     return (
+        <>
+            <UseEffect/>
         <form className={'containerContact'} onSubmit={e => e.preventDefault()}>
             <label>First Name
                 <input type="text" name="firstname" placeholder="Your name.."/>
@@ -65,6 +62,7 @@ const Contact = () => {
             </label>
             <button type="submit">Submit</button>
         </form>
+        </>
     );
 };
 

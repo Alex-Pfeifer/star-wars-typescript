@@ -9,6 +9,8 @@ import ErrorPage from "./ErrorPage.tsx";
 
 const AboutMe = () => {
     const [hero, setHero] = useState<HeroInfo>();
+
+
     const {heroId = defaultHero} = useParams();
     const {changeHero} = useContext(SWContext)
 
